@@ -40,7 +40,7 @@ def chat_with_openai(user_id):
         st.session_state["messages"] = {}
 
     if user_id not in st.session_state["messages"]:
-        st.session_state["messages"][user_id] = [{"role": " helpful virtual pcod health personal manager", "content": user_context}]
+        st.session_state["messages"][user_id] = [{"role": "assistant", "content": user_context}]
 
     for msg in st.session_state["messages"][user_id]:
         st.chat_message(msg["role"]).write(msg["content"])
