@@ -3,7 +3,7 @@ import sqlite3
 from sqlite3 import Error
 import streamlit as st
 
-openai_api_key='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'
+openai.api_key = st.secrets.api_credentials.api_key
 
 def create_connection():
     conn = None
