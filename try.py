@@ -40,13 +40,13 @@ def chat_with_openai(user_id):
         st.session_state["messages"] = {}
 
     if user_id not in st.session_state["messages"]:
-        st.session_state["messages"][user_id] = [{"role": "assistant", "content": user_context}]
+        st.session_state["messages"][user_id] = [{"role": " helpful virtual pcod health personal manager", "content": user_context}]
 
     for msg in st.session_state["messages"][user_id]:
         st.chat_message(msg["role"]).write(msg["content"])
 
     if user_context := st.chat_input():
-        openai.api_key = openai_api_key
+        # openai.api_key = openai_api_key
         st.session_state["messages"][user_id].append({"role": "user", "content": user_context})
         st.chat_message("user").write(user_context)
         response = openai.ChatCompletion.create(model="gpt-3.5-turbo", messages=st.session_state["messages"][user_id])
